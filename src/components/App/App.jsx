@@ -1,5 +1,30 @@
+import { Route, Routes } from 'react-router';
+
+import Layout from 'components/Layout/Layout';
+import Home from 'pages/Home';
+import Movies from 'pages/Movies';
+import MovieDetails from 'pages/MovieDetails';
+import Cast from 'components/Cast/Cast';
+import Reviews from 'components/Reviews/Reviews';
+
 const App = () => {
-  return <div>React homework template</div>;
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="movies" element={<Movies />} />
+        <Route path="movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;
+// '/' – компонент Home, домашня сторінка зі списком популярних кінофільмів.
+// '/movies' – компонент Movies, сторінка пошуку кінофільмів за ключовим словом.
+// '/movies/:movieId' – компонент MovieDetails, сторінка з детальною інформацією про кінофільм.
+// /movies/:movieId/cast – компонент Cast, інформація про акторський склад. Рендериться на сторінці MovieDetails.
+// /movies/:movieId/reviews – компонент Reviews, інформація про огляди. Рендериться на сторінці MovieDetails.
