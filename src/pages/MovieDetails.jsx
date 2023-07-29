@@ -1,15 +1,30 @@
 import { Outlet, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import { fetchMovieDetails } from '../helpers/api';
+import { useEffect, useState } from 'react';
+
+import Movie from 'components/Movie/Movie';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  //   useEffect(() => {
-  //     // HTTP zapros '/movies/:movieId' – компонент MovieDetails, сторінка з детальною інформацією про кінофільм.
-  //   }, []);
-  //   console.log(movieId);
+  const [movie, setMovie] = useState([]);
+
+  useEffect(() => {
+    if (!movieId) return;
+    fetchMovieDetails(movieId)
+      .then(result => {
+        setMovie(result);
+      })
+      .catch(error => {
+        console.error('Произошла ошибка:', error.message);
+      });
+
+    // HTTP zapros '/movies/:movieId' – компонент MovieDetails, сторінка з детальною інформацією про кінофільм.
+  }, [movieId]);
   return (
     <>
-      <h1>сторінка з детальною інформацією про кінофільм: {movieId}</h1>
+      <Movie movie={movie} />
+
       <ul>
         <li>
           <Link to="cast">Cast</Link>

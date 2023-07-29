@@ -1,21 +1,29 @@
-// import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { fetchSearchForMovies } from 'helpers/api';
+import { useSearchParams } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
+import Search from 'components/Search/Search';
+import MoviesList from 'components/MoviesList/MoviesList';
 
 const Movies = () => {
-  //   useEffect(() => {
-  //     // HTTP zapros /search/search-movies пошук фільму за ключовим словом на сторінці фільмів.
-  //   }, []);
+  const [movies, setMovies] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
+
+  const handleSubmit = value => {
+    setSearchParams({ query: value });
+  };
+
+  useEffect(() => {
+    if (!query) return;
+    fetchSearchForMovies(query).then(res => setMovies([...res]));
+  }, [query]);
+
   return (
     <>
-      <h1>сторінка пошуку кінофільмів за ключовим словом.</h1>
-      {['mov-1', 'mov-2', 'mov-3'].map(mov => {
-        return (
-          <Link key={mov} to={`${mov}`}>
-            {mov}
-          </Link>
-        );
-      })}
+      <h1>Страница поиска кинофильмов по ключевому слову.</h1>
+      <Search onSubmit={handleSubmit} />
+      <MoviesList movies={movies} />
     </>
   );
 };
