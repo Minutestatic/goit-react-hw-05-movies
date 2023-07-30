@@ -6,6 +6,7 @@ const { useParams } = require('react-router-dom');
 const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
+  console.log(cast);
 
   useEffect(() => {
     fetchCredits(movieId)

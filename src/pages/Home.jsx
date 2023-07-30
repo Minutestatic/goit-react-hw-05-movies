@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <>
-      <h1>Список популярних кінофільмів</h1>
+      <h1>Trending today</h1>
       <MoviesList movies={movies} />
     </>
   );
