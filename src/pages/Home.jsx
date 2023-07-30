@@ -16,10 +16,12 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <h1>Trending today</h1>
-      <MoviesList movies={movies} />
-    </>
+    <section>
+      <div>
+        <h1>Trending today</h1>
+        <MoviesList movies={movies} />
+      </div>
+    </section>
   );
 };
 

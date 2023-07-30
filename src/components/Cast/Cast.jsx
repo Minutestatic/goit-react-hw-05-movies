@@ -20,12 +20,25 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <>
-      <p>
-        компонент Cast, інформація про акторський склад. Рендериться на сторінці
-      </p>
-      <p>Cast:{}</p>
-    </>
+    <section>
+      <ul>
+        {cast.map(cas => {
+          return (
+            <li key={cas.id}>
+              <img
+                src={
+                  cas.profile_path &&
+                  `https://image.tmdb.org/t/p/w200${cas.profile_path}`
+                }
+                alt="{cas.name}"
+              />
+              <p>{cas.name}</p>
+              <p>Character: {cas.character}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 };
 export default Cast;

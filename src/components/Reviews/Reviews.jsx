@@ -18,14 +18,20 @@ const Reviews = () => {
         console.error('Произошла ошибка:', error.message);
       });
   }, [movieId]);
-  //   useEffect(() => {
-  //     // HTTP /movies/get-movie-reviews запит оглядів для сторінки кінофільму.
-  //   }, []);
+
   return (
-    <>
-      <p>компонент Reviews, інформація про огляди. Рендериться на сторінці</p>
-      <p>Reviews:{movieId}</p>
-    </>
+    <section>
+      <ul>
+        {reviews.map(review => {
+          return (
+            <li>
+              <p>Author: {review.author}</p>
+              <p>{review.content}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 };
 
