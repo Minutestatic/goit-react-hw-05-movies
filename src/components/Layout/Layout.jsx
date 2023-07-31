@@ -16,7 +16,7 @@ const Layout = () => {
               </li>
               <li className={css.item}>
                 <NavLink className={css.link} to="/movies">
-                  Muvies
+                  Movies
                 </NavLink>
               </li>
             </ul>

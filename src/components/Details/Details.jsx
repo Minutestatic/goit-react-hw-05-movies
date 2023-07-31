@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import css from './Details.module.css';
+import movieImg from './movieImg.jpg';
 
 const Details = ({
   movie: { title, poster_path, vote_average, overview, genres },
@@ -12,12 +13,18 @@ const Details = ({
     <>
       <Link to={backLinkRef.current}>Go back</Link>
       <div className={css.container}>
-        <div>
-          <img
-            src={poster_path && `https://image.tmdb.org/t/p/w500${poster_path}`}
-            alt=""
-          />
-        </div>
+        <img
+          className={css.img}
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w300${poster_path}`
+              : movieImg
+          }
+          alt=""
+          width={250}
+          height={400}
+        />
+
         <div>
           <h1 className={css.title}>{title}</h1>
           <p className={css.text}>User Score: {vote_average}</p>
