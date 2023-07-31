@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <section>
-      <div>
+      <div className="container">
         <h1>Trending today</h1>
         <MoviesList movies={movies} />
       </div>

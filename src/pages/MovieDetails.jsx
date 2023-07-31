@@ -2,7 +2,7 @@ import { Outlet, useParams } from 'react-router';
 import { fetchMovieDetails } from '../helpers/api';
 import { Suspense, useEffect, useState } from 'react';
 
-import Movie from 'components/Details/Details';
+import Details from 'components/Details/Details';
 import DetailsList from 'components/DetailsList/DetailsList';
 
 const MovieDetails = () => {
@@ -21,14 +21,16 @@ const MovieDetails = () => {
   }, [movieId]);
 
   return (
-    <>
-      <Movie movie={movie} />
-      <DetailsList />
+    <section>
+      <div className="container">
+        <Details movie={movie} />
+        <DetailsList />
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
-    </>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
+      </div>
+    </section>
   );
 };
 export default MovieDetails;

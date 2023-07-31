@@ -1,11 +1,8 @@
 header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
     0 1px 10px 0 rgba(243, 243, 243, 0.12);
   padding: 15px 100px;
+  margin-bottom: 25px;
 }
 .list {
   list-style: none;
@@ -13,6 +10,9 @@ header {
   margin: 0;
   display: flex;
   gap: 40px;
+}
+.item {
+  margin-left: 50px;
 }
 
 .link {

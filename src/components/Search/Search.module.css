@@ -1,0 +1,12 @@
+.form {
+  border-radius: 3px;
+}
+.input {
+  font-size: 20px;
+  padding: 5px;
+}
+.button {
+  width: 150px;
+  font-size: 20px;
+  padding: 5px;
+}

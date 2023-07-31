@@ -6,12 +6,10 @@ const { useParams } = require('react-router-dom');
 const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
-  console.log(reviews);
 
   useEffect(() => {
     fetchReviews(movieId)
       .then(result => {
-        console.log(result);
         setReviews(result);
       })
       .catch(error => {
@@ -22,14 +20,18 @@ const Reviews = () => {
   return (
     <section>
       <ul>
-        {reviews.map(review => {
-          return (
-            <li>
-              <p>Author: {review.author}</p>
-              <p>{review.content}</p>
-            </li>
-          );
-        })}
+        {reviews.length ? (
+          reviews.map(review => {
+            return (
+              <li>
+                <h3>Author: {review.author}</h3>
+                <p>{review.content}</p>
+              </li>
+            );
+          })
+        ) : (
+          <p>not reviews </p>
+        )}
       </ul>
     </section>
   );

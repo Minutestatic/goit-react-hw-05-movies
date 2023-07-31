@@ -1,3 +1,4 @@
+import css from './Search.module.css';
 const Search = ({ onSubmit }) => {
   let queryValue = '';
 
@@ -10,9 +11,16 @@ const Search = ({ onSubmit }) => {
   };
   return (
     <>
-      <form action="" onSubmit={handleSubmit}>
-        <input type="text" name="query" defaultValue={queryValue} />
-        <button type="submit">Search</button>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <input
+          className={css.input}
+          type="text"
+          name="query"
+          defaultValue={queryValue}
+        />
+        <button className={css.button} type="submit">
+          Search
+        </button>
       </form>
     </>
   );

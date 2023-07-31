@@ -20,11 +20,12 @@ const Movies = () => {
   }, [query]);
 
   return (
-    <>
-      <h1>Страница поиска кинофильмов по ключевому слову.</h1>
-      <Search onSubmit={handleSubmit} />
-      <MoviesList movies={movies} />
-    </>
+    <section>
+      <div className="container">
+        <Search onSubmit={handleSubmit} />
+        <MoviesList movies={movies} />
+      </div>
+    </section>
   );
 };
 
