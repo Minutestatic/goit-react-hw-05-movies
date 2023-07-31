@@ -9,7 +9,7 @@ const Layout = () => {
         <div className="container">
           <nav>
             <ul className={css.list}>
-              <li className={css.item}>
+              <li>
                 <NavLink className={css.link} to="/">
                   Home
                 </NavLink>

@@ -11,9 +11,6 @@ header {
   display: flex;
   gap: 40px;
 }
-.item {
-  margin-left: 50px;
-}
 
 .link {
   position: relative;
